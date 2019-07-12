@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+
+        //设置改jar版本
+//        buildConfigField "String", JAR_VERSION, SDK_VERSION_NAME_PY_CORE
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    api 'com.android.support:cardview-v7:28.0.0'
+    api 'com.android.support:customtabs:28.0.0'
+    //SDK额外的添加
+    api 'com.android.support:recyclerview-v7:28.0.0'
+}
+
+//./gradlew makeJar 出现env: bash\r: No such file or directory的话是由
+// 于window生成的工程gradlew文件在mac下换行符有问题

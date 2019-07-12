@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+
+
+    signingConfigs {
+
+        appSign {
+            keyAlias 'mmsdka'
+            keyPassword 'apk888999'
+            storeFile file('../key/apkextrato.keystore')
+            storePassword 'apk888999'
+        }
+
+    }
+
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.ssract.one"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.appSign
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                //这里修改apk文件名
+                outputFileName = "${variant.applicationId}_${variant.versionCode}_${variant.versionName}_${variant.name}_${getReleaseTime()}.apk"
+            }
+    }
+
+
+    buildTypes {
+        release {
+
+            minifyEnabled true  // 是否混淆
+            zipAlignEnabled true // Zipalign优化
+            shrinkResources true  // 是否去除无效的资源文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+
+        debug {
+//            signingConfig signingConfigs.starpySign
+
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(path: ':star-core')
+}
+
+def getReleaseTime() {
+    return new Date().format("yyyy_MM_dd_HH_mm", TimeZone.getDefault())
+}
