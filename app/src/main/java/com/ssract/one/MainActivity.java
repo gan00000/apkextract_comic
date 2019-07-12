@@ -7,13 +7,16 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.core.base.request.SRequestAsyncTask;
+import com.core.base.utils.PL;
 import com.core.base.utils.PermissionUtil;
+import com.core.base.utils.SignatureUtil;
 import com.ssract.one.adapter.ApkInfoAdapter;
 import com.ssract.one.bean.ApkInfoBean;
 import com.ssract.one.utils.ApkInfoBeanComparator;
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         apkInfoBeans = new ArrayList<>();
 
         PermissionUtil.requestPermissions_STORAGE(this,102);
+
+        PL.e(SignatureUtil.getSignatureSHA1WithColon(this,this.getPackageName()));
 
         new SRequestAsyncTask(){
 

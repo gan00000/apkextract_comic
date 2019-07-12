@@ -1,7 +1,5 @@
 package com.core.base.utils;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -16,11 +14,11 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.LocaleList;
-import android.support.annotation.NonNull;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.io.File;
 import java.io.IOException;

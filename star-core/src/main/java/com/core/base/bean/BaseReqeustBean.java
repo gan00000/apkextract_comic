@@ -1,7 +1,8 @@
 package com.core.base.bean;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.core.base.utils.ApkInfoUtil;
 import com.core.base.utils.SStringUtil;
