@@ -17,6 +17,7 @@ import com.core.base.request.SRequestAsyncTask;
 import com.core.base.utils.PL;
 import com.core.base.utils.PermissionUtil;
 import com.core.base.utils.SignatureUtil;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ssract.one.adapter.ApkInfoAdapter;
 import com.ssract.one.bean.ApkInfoBean;
 import com.ssract.one.utils.ApkInfoBeanComparator;
@@ -36,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private ApkInfoAdapter apkInfoAdapter;
     ProgressDialog progressDialog;
 
+
+
     public static final String TAG = "MainActivity";
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @SuppressLint("StaticFieldLeak")
     @Override
@@ -54,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         PermissionUtil.requestPermissions_STORAGE(this,102);
 
         PL.e(SignatureUtil.getSignatureSHA1WithColon(this,this.getPackageName()));
+
+        reportEvent();
 
         new SRequestAsyncTask(){
 
@@ -88,6 +94,19 @@ public class MainActivity extends AppCompatActivity {
         }.asyncExcute();
 
 
+
+    }
+
+    private void reportEvent() {
+
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "mainactivity_create");
+        mFirebaseAnalytics.logEvent("MainActivity_Create",bundle);
 
     }
 

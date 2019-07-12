@@ -1,6 +1,7 @@
 package com.ssract.one.adapter;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.base.utils.AppUtil;
 import com.core.base.utils.PermissionUtil;
 import com.core.base.utils.ToastUtils;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ssract.one.R;
 import com.ssract.one.bean.ApkInfoBean;
 import com.ssract.one.utils.ApkFileUtil;
@@ -60,6 +62,14 @@ public class ApkInfoAdapter extends RecyclerView.Adapter<ApkInfoAdapter.MyViewHo
             @Override
             public void onClick(View view) {
                 try {
+
+                    FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(activity);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("appname", apkInfoBean.getAppName());
+                    bundle.putString("packageName", apkInfoBean.getPackageName());
+                    mFirebaseAnalytics.logEvent("extractapp",bundle);
+
                     if (PermissionUtil.requestPermissions_STORAGE(activity,102)){
 
                         String apkSaveDir = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + activity.getPackageName();
