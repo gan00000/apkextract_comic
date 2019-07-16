@@ -2,7 +2,6 @@ package com.ssract.one;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -21,6 +20,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ssract.one.adapter.ApkInfoAdapter;
 import com.ssract.one.bean.ApkInfoBean;
 import com.ssract.one.utils.ApkInfoBeanComparator;
+import com.ssract.one.utils.AppInfoUtil;
 import com.ssract.one.utils.DialogUtil;
 
 import java.util.ArrayList;
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 //            Drawable icon2 = appInfo.loadIcon(pm);
 
             try {
-                if (isSystemApp(packageInfo)) {
+                if (AppInfoUtil.isSystemApp(packageInfo)) {
                     Log.e(TAG, name + " is not user app");
                     apkInfoBean.setSystemApp(true);
                 }
@@ -152,7 +152,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public boolean isSystemApp(PackageInfo pInfo) {
-        return (((pInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) && ((pInfo.applicationInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0));
-    }
 }

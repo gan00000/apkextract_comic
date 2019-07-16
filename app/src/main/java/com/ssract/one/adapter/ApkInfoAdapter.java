@@ -72,9 +72,17 @@ public class ApkInfoAdapter extends RecyclerView.Adapter<ApkInfoAdapter.MyViewHo
 
                     if (PermissionUtil.requestPermissions_STORAGE(activity,102)){
 
-                        String apkSaveDir = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + activity.getPackageName();
+                        final String apkSaveDir = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + activity.getPackageName();
                         ApkFileUtil.copyApp(apkInfoBean.getSourceDir(), apkSaveDir, apkInfoBean.getPackageName());
                         ToastUtils.toast(activity,apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_success) + apkSaveDir);
+
+//                        DialogUtil.alert(activity, apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_success) + apkSaveDir + ", open?",
+//                                R.string.ok_confirm, new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialogInterface, int i) {
+//                                        ApkFileUtil.openDir(activity, apkSaveDir);
+//                                    }
+//                                });
                     }
                 } catch (IOException e) {
                     ToastUtils.toast(activity,apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_error));

@@ -8,4 +8,7 @@
     <string name="app_extra_success"> 已提取到 </string>
     <string name="app_extract">提取</string>
 
+    <string name="userapp">用户应用</string>
+    <string name="systemapp">系统应用</string>
+
 </resources>
