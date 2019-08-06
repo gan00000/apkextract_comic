@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class ApkFileUtil {
 
-    public static void copyApp(String srcPath, String destDir, String outname) throws IOException {
+    public static File copyApp(String srcPath, String destDir, String outname) throws IOException {
         File in = new File(srcPath);
 
         File parentFile = new File(destDir);
@@ -34,6 +34,8 @@ public class ApkFileUtil {
         fis.close();
         fos.flush();
         fos.close();
+
+        return outFile;
     }
 
 
@@ -47,14 +49,23 @@ public class ApkFileUtil {
 
         if (dirFlie.exists()){
 
-
-            Uri mUri = FileProvider.getUriForFile(activity,activity.getPackageName() + ".provider",dirFlie);
-
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setDataAndType(mUri, "file/*");
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-//        activity.startActivity(intent);
+            final Uri data = FileProvider.getUriForFile(activity,activity.getPackageName() + ".provider",dirFlie);
+            activity.grantUriPermission(activity.getPackageName(), data, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(data, "*/*");
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//            activity.startActivity(intent);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activity.startActivity(Intent.createChooser(intent, "Open Folder"));
+
+//            Uri mUri = FileProvider.getUriForFile(activity,activity.getPackageName() + ".provider",dirFlie);
+//
+//            Intent intent = new Intent(Intent.ACTION_VIEW);
+//            intent.setDataAndType(mUri, "file/*");
+////            intent.addCategory(Intent.CATEGORY_OPENABLE);
+////        activity.startActivity(intent);
+//            activity.startActivity(Intent.createChooser(intent, "Open Folder"));
+////            activity.startActivity(Intent.createChooser(intent, "Open Folder"));
         }
 
     }
