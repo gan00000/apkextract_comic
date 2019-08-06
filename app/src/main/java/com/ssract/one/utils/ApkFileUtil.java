@@ -1,11 +1,5 @@
 package com.ssract.one.utils;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-
-import androidx.core.content.FileProvider;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -40,34 +34,34 @@ public class ApkFileUtil {
 
 
 
-    public static void openDir(Activity activity,String dirPath){
-
-        //getUrl()获取文件目录，例如返回值为/storage/sdcard1/MIUI/music/mp3_hd/单色冰淇凌_单色凌.mp3
-//        File file = new File(filePath);
-        //获取父目录
-        File dirFlie = new File(dirPath);
-
-        if (dirFlie.exists()){
-
-            final Uri data = FileProvider.getUriForFile(activity,activity.getPackageName() + ".provider",dirFlie);
-            activity.grantUriPermission(activity.getPackageName(), data, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            final Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(data, "*/*");
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//            activity.startActivity(intent);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            activity.startActivity(Intent.createChooser(intent, "Open Folder"));
-
-//            Uri mUri = FileProvider.getUriForFile(activity,activity.getPackageName() + ".provider",dirFlie);
+//    public static void openDir(Activity activity,String dirPath){
 //
-//            Intent intent = new Intent(Intent.ACTION_VIEW);
-//            intent.setDataAndType(mUri, "file/*");
-////            intent.addCategory(Intent.CATEGORY_OPENABLE);
-////        activity.startActivity(intent);
+//        //getUrl()获取文件目录，例如返回值为/storage/sdcard1/MIUI/music/mp3_hd/单色冰淇凌_单色凌.mp3
+////        File file = new File(filePath);
+//        //获取父目录
+//        File dirFlie = new File(dirPath);
+//
+//        if (dirFlie.exists()){
+//
+//            final Uri data = FileProvider.getUriForFile(activity,activity.getPackageName() + ".provider",dirFlie);
+//            activity.grantUriPermission(activity.getPackageName(), data, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//            final Intent intent = new Intent(Intent.ACTION_VIEW);
+//            intent.setDataAndType(data, "*/*");
+//            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+////            activity.startActivity(intent);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //            activity.startActivity(Intent.createChooser(intent, "Open Folder"));
+//
+////            Uri mUri = FileProvider.getUriForFile(activity,activity.getPackageName() + ".provider",dirFlie);
+////
+////            Intent intent = new Intent(Intent.ACTION_VIEW);
+////            intent.setDataAndType(mUri, "file/*");
+//////            intent.addCategory(Intent.CATEGORY_OPENABLE);
+//////        activity.startActivity(intent);
 ////            activity.startActivity(Intent.createChooser(intent, "Open Folder"));
-        }
-
-    }
+//////            activity.startActivity(Intent.createChooser(intent, "Open Folder"));
+//        }
+//
+//    }
 
 }
