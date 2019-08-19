@@ -1,1 +1,1 @@
-include ':app', ':star-core', ':PhoneFlashlightApp'
+include ':app', ':star-core', ':PhoneFlashlightApp', ':comicapp'
