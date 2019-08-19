@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">超級手機電筒</string>
+
+    <string name="flight_off">off</string>
+    <string name="flight_on">on</string>
+</resources>

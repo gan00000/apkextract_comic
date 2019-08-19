@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'io.fabric'
+
+android {
+
+    signingConfigs {
+
+        appSign {
+            keyAlias 'mmsdka'
+            keyPassword 'apk888999'
+            storeFile file('../key/apkextrato.keystore')
+            storePassword 'apk888999'
+        }
+
+    }
+
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.gan.flalight"
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 2
+        versionName "2.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+
+            minifyEnabled true  // 是否混淆
+            zipAlignEnabled true // Zipalign优化
+            shrinkResources true  // 是否去除无效的资源文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.appSign
+        }
+
+        debug {
+            signingConfig signingConfigs.appSign
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+
+    implementation project(path: ':star-core')
+
+
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+//    implementation 'com.google.firebase:firebase-ads:17.2.0' //admob广告
+    // Add dependency
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9' //崩溃分析
+}
+
+apply plugin: 'com.google.gms.google-services'
