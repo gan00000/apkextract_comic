@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -163,6 +167,31 @@ public class MainActivityNew extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.apptitlemenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.action_comic:
+                Toast.makeText(this,"action_comic button clicked",Toast.LENGTH_SHORT).show();
+                reportEventForName("action_comic");
+
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
     private void showAdView() {
         mAdView = findViewById(R.id.app_adView);
         mAdView.setAdListener(new AdListener() {
@@ -260,6 +289,16 @@ public class MainActivityNew extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "mainactivity_create");
         mFirebaseAnalytics.logEvent("MainActivity_Create",bundle);
+
+    }
+
+    private void reportEventForName(String name) {
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        Bundle bundle = new Bundle();
+        mFirebaseAnalytics.logEvent(name,bundle);
 
     }
 

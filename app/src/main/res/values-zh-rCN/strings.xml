@@ -11,4 +11,6 @@
     <string name="userapp">用户应用</string>
     <string name="systemapp">系统应用</string>
 
+    <string name="comic">漫画</string>
+
 </resources>

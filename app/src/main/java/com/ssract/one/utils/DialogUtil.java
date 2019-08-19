@@ -33,4 +33,14 @@ public class DialogUtil {
 
         alertDialog.show();
     }
+
+    public static void alertOk(Activity activity,String msg, DialogInterface.OnClickListener onClickListener){
+
+        AlertDialog alertDialog = new AlertDialog.Builder(activity)
+                .setMessage(msg)
+                .setPositiveButton("OK",onClickListener)
+                .create();
+
+        alertDialog.show();
+    }
 }

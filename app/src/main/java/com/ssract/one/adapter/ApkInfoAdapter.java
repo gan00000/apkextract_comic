@@ -1,6 +1,7 @@
 package com.ssract.one.adapter;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ssract.one.R;
 import com.ssract.one.bean.ApkInfoBean;
 import com.ssract.one.utils.ApkFileUtil;
+import com.ssract.one.utils.DialogUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -74,7 +76,7 @@ public class ApkInfoAdapter extends RecyclerView.Adapter<ApkInfoAdapter.MyViewHo
 
                         final String apkSaveDir = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + activity.getPackageName();
                         ApkFileUtil.copyApp(apkInfoBean.getSourceDir(), apkSaveDir, apkInfoBean.getPackageName());
-                        ToastUtils.toast(activity,apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_success) + apkSaveDir);
+//                        ToastUtils.toast(activity,apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_success) + apkSaveDir);
 
 //                        DialogUtil.alert(activity, apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_success) + apkSaveDir + ", open?",
 //                                R.string.ok_confirm, new DialogInterface.OnClickListener() {
@@ -83,6 +85,14 @@ public class ApkInfoAdapter extends RecyclerView.Adapter<ApkInfoAdapter.MyViewHo
 //                                        ApkFileUtil.openDir(activity, apkSaveDir);
 //                                    }
 //                                });
+
+                        String okMsg = apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_success) + apkSaveDir;
+                        DialogUtil.alertOk(activity, okMsg, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
                     }
                 } catch (IOException e) {
                     ToastUtils.toast(activity,apkInfoBean.getAppName() + activity.getResources().getText(R.string.app_extra_error));
