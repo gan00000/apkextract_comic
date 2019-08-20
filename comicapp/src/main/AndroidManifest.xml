@@ -19,6 +19,7 @@
     package="com.ccsky.sfish"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -43,7 +44,7 @@
         <meta-data android:name="android.max_aspect" android:value="2.1"/>
 
         <activity
-            android:name=".ui.SkyMainActivity"
+            android:name="com.ccsky.sfish.ui.SkyMainActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Main"
             android:launchMode="singleTask"
@@ -54,20 +55,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-            <meta-data android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="http"/>
-                <data android:scheme="https"/>
-                <data android:host="exhentai.org"/>
-                <data android:host="e-hentai.org"/>
-                <data android:host="g.e-hentai.org"/>
-                <data android:host="lofi.e-hentai.org"/>
-            </intent-filter>
 
             <intent-filter android:label="@string/keyword_search">
                 <action android:name="android.intent.action.SEND"/>
@@ -83,7 +70,7 @@
         </activity>
 
         <activity
-            android:name=".ui.SkyGalleryActivity"
+            android:name="com.ccsky.sfish.ui.SkyGalleryActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Gallery"
             android:launchMode="singleTask">
@@ -131,66 +118,66 @@
         </activity>
 
         <activity
-            android:name=".ui.SkySettingsActivity"
+            android:name="com.ccsky.sfish.ui.SkySettingsActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Settings"/>
 
         <activity
-            android:name=".ui.SkyExcludedLanguagesActivity"
+            android:name="com.ccsky.sfish.ui.SkyExcludedLanguagesActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Toolbar"
             android:label="@string/excluded_languages"/>
 
         <activity
-            android:name=".ui.DirPickerActivity"
+            android:name="com.ccsky.sfish.ui.DirPickerActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Toolbar"
             android:label="@string/dir_picker"/>
 
         <activity
-            android:name=".SkyPayActivity"
+            android:name="com.ccsky.sfish.SkyPayActivity"
             android:configChanges="screenSize|uiMode|orientation"
             android:theme="@style/Theme.AppCompat.Light"
             />
 
         <activity
-            android:name=".ui.LicenseActivity"
+            android:name="com.ccsky.sfish.ui.LicenseActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Toolbar"
             android:label="@string/license"/>
 
         <activity
-            android:name=".ui.FilterActivity"
+            android:name="com.ccsky.sfish.ui.FilterActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Toolbar"
             android:label="@string/filter"/>
 
         <activity
-            android:name=".ui.SetSecurityActivity"
+            android:name="com.ccsky.sfish.ui.SetSecurityActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Toolbar"
             android:label="@string/set_pattern_protection"/>
 
         <activity
-            android:name=".ui.UConfigActivity"
+            android:name="com.ccsky.sfish.ui.UConfigActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Toolbar"
             android:label="@string/u_config"/>
 
         <activity
-            android:name=".ui.MyTagsActivity"
+            android:name="com.ccsky.sfish.ui.MyTagsActivity"
             android:configChanges="screenSize|uiMode"
             android:theme="@style/AppTheme.Toolbar"
             android:label="@string/my_tags"/>
 
         <activity
-          android:name=".ui.HostsActivity"
+          android:name="com.ccsky.sfish.ui.HostsActivity"
           android:configChanges="screenSize|uiMode"
           android:theme="@style/AppTheme.Toolbar"
           android:label="@string/hosts"/>
 
         <activity
-            android:name=".shortcuts.ShortcutsActivity"
+            android:name="com.ccsky.sfish.shortcuts.ShortcutsActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:excludeFromRecents="true"
             android:taskAffinity=""
@@ -198,7 +185,7 @@
         </activity>
 
         <service
-            android:name=".download.SkyDownloadService"
+            android:name="com.ccsky.sfish.download.SkyDownloadService"
             android:label="@string/download_service_label"/>
 
         <provider
