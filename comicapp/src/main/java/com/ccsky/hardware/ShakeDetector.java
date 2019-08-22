@@ -10,7 +10,7 @@ public class ShakeDetector implements SensorEventListener {
 
     /*
      * The gForce that is necessary to register as shake.
-     * Must be greater than 1G (one earth gravity unit).
+     * Must be greater than 1G (com.ssract.one earth gravity unit).
      * You can install "G-Force", by Blake La Pierre
      * from the Google Play Store and run it to see how
      *  many G's it takes to register a shake

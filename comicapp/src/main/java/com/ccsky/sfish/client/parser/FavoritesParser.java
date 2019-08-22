@@ -52,7 +52,7 @@ public class FavoritesParser {
             Element ido = JsoupUtils.getElementByClass(d, "ido");
             //noinspection ConstantConditions
             Elements fps = ido.getElementsByClass("fp");
-            // Last one is "fp fps"
+            // Last com.ssract.one is "fp fps"
             AssertUtils.assertEquals(11, fps.size());
 
             for (int i = 0; i < 10; i++) {

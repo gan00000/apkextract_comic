@@ -43,6 +43,22 @@
 
         <meta-data android:name="android.max_aspect" android:value="2.1"/>
 
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4247177623554873~9500822679"/>
+
+        <activity android:name="com.ssract.one.MainActivityNew"
+            android:screenOrientation="sensorPortrait"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|fontScale"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.ccsky.sfish.ui.SkyMainActivity"
             android:configChanges="screenSize|uiMode"
@@ -50,10 +66,10 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateHidden">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
 
 
             <intent-filter android:label="@string/keyword_search">
@@ -188,16 +204,28 @@
             android:name="com.ccsky.sfish.download.SkyDownloadService"
             android:label="@string/download_service_label"/>
 
+        <!--<provider-->
+            <!--android:name="com.ccsky.content.FileProvider"-->
+            <!--android:authorities="${applicationId}.fileprovider"-->
+            <!--android:grantUriPermissions="true"-->
+            <!--android:exported="false">-->
+
+            <!--<meta-data-->
+                <!--android:name="com.ccsky.content.FILE_PROVIDER_PATHS"-->
+                <!--android:resource="@xml/filepaths"/>-->
+
+        <!--</provider>-->
+
         <provider
-            android:name="com.ccsky.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:grantUriPermissions="true"
-            android:exported="false">
-
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
-                android:name="com.ccsky.content.FILE_PROVIDER_PATHS"
+                android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths"/>
-
         </provider>
+
+
     </application>
 </manifest>

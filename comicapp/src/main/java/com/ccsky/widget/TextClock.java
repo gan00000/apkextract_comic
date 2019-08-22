@@ -166,7 +166,7 @@ public class TextClock extends AppCompatTextView {
     }
 
     /**
-     * Selects either one of {@link #getFormat12Hour()} or {@link #getFormat24Hour()}
+     * Selects either com.ssract.one of {@link #getFormat12Hour()} or {@link #getFormat24Hour()}
      * depending on whether the user has selected 24-hour format.
      *
      * Calling this method does not schedule or unschedule the time ticker.
@@ -180,7 +180,7 @@ public class TextClock extends AppCompatTextView {
     }
 
     /**
-     * Selects either one of {@link #getFormat12Hour()} or {@link #getFormat24Hour()}
+     * Selects either com.ssract.one of {@link #getFormat12Hour()} or {@link #getFormat24Hour()}
      * depending on whether the user has selected 24-hour format.
      *
      * @param handleTicker true if calling this method should schedule/unschedule the

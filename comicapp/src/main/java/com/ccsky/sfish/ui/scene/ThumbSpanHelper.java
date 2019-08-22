@@ -23,7 +23,7 @@ import com.ccsky.sfish.client.data.GalleryInfo;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO GridLayoutManager do not work at all ! SpaceGroupIndex is useless for layout! I need to create one by myself
+// TODO GridLayoutManager do not work at all ! SpaceGroupIndex is useless for layout! I need to create com.ssract.one by myself
 public class ThumbSpanHelper {
 
     private static final int MIN_ARRAY_LENGTH = 50;
@@ -238,7 +238,7 @@ public class ThumbSpanHelper {
             return;
         }
 
-        // The space is too far, find a near one
+        // The space is too far, find a near com.ssract.one
         int start = Math.max(0, mNextGroupIndex - MAX_ROW_INTERVAL) * mSpanCount;
         findNearSpace(start);
     }

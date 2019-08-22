@@ -17,7 +17,7 @@
 
 <resources>
 
-    <string name="app_name">First comic</string>
+    <!--<string name="app_name">First comic</string>-->
 
     <string name="site_e" translatable="false">e-hentai</string>
     <string name="site_ex" translatable="false">exhentai</string>

@@ -202,7 +202,7 @@ public class DownloadManager implements SpiderQueen.OnSpiderListener {
 
     private void ensureDownload() {
         if (mCurrentTask != null) {
-            // Only one download
+            // Only com.ssract.one download
             return;
         }
 

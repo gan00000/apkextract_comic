@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "678309420512",
+    "firebase_url": "https://exta-4a58a.firebaseio.com",
+    "project_id": "exta-4a58a",
+    "storage_bucket": "exta-4a58a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678309420512:android:63d887951610253c",
+        "android_client_info": {
+          "package_name": "com.ssract.one"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678309420512-p5qio9r48qqp9h51cn0ip9dfborqk38m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssract.one",
+            "certificate_hash": "d69cf096ed6020bfeaa532a83ca723fba002ab1e"
+          }
+        },
+        {
+          "client_id": "678309420512-u6jvbdh5l2natr56bb247p44ro6ksoud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0ykvJKhMzAsOYHQ4OL4Cw2gqAzO1eNcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678309420512-u6jvbdh5l2natr56bb247p44ro6ksoud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

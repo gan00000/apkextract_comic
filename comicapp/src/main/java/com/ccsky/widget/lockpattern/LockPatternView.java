@@ -230,7 +230,7 @@ public class LockPatternView extends View {
         void onPatternCleared();
 
         /**
-         * The user extended the pattern currently being drawn by one cell.
+         * The user extended the pattern currently being drawn by com.ssract.one cell.
          * @param pattern The pattern with newly added cell.
          */
         void onPatternCellAdded(List<Cell> pattern);

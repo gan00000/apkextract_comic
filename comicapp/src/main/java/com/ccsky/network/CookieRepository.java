@@ -153,7 +153,7 @@ public class CookieRepository implements CookieJar {
    * Quick and dirty pattern to differentiate IP addresses from hostnames. This is an approximation
    * of Android's private InetAddress#isNumeric API.
    *
-   * This matches IPv6 addresses as a hex string containing at least one colon, and possibly
+   * This matches IPv6 addresses as a hex string containing at least com.ssract.one colon, and possibly
    * including dots after the first colon. It matches IPv4 addresses as strings containing only
    * decimal digits and dots. This pattern matches strings like "a:.23" and "54" that are neither IP
    * addresses nor hostnames; they will be verified as IP addresses (which is a more strict

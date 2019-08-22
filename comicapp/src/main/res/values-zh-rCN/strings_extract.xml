@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Apk 提取器</string>
+
+    <string name="app_loading">加载应用中</string>
+    <string name="app_extra_error"> 提取失败</string>
+    <string name="app_extra_success"> 已提取到 </string>
+    <string name="app_extract">提取</string>
+
+    <string name="userapp">用户应用</string>
+    <string name="systemapp">系统应用</string>
+
+    <string name="comic">漫画</string>
+
+</resources>

@@ -34,6 +34,8 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
+import androidx.core.content.ContextCompat;
+
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.File;
@@ -41,8 +43,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import androidx.core.content.ContextCompat;
 
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
@@ -125,7 +125,7 @@ import static org.xmlpull.v1.XmlPullParser.START_TAG;
  *&lt;/paths&gt;
  *</pre>
  * <p>
- * The <code>&lt;paths&gt;</code> element must contain one or more of the following child elements:
+ * The <code>&lt;paths&gt;</code> element must contain com.ssract.one or more of the following child elements:
  * </p>
  * <dl>
  *     <dt>
@@ -257,7 +257,7 @@ import static org.xmlpull.v1.XmlPullParser.START_TAG;
  * <code>content://com.mydomain.fileprovider/my_images/default_image.jpg</code>.
  * <h3 id="Permissions">Granting Temporary Permissions to a URI</h3>
  * To grant an access permission to a content URI returned from
- * {@link #getUriForFile(Context, String, File) getUriForFile()}, do one of the following:
+ * {@link #getUriForFile(Context, String, File) getUriForFile()}, do com.ssract.one of the following:
  * <ul>
  * <li>
  *     Call the method
@@ -286,7 +286,7 @@ import static org.xmlpull.v1.XmlPullParser.START_TAG;
  *     <p>
  *     Permissions granted in an {@link Intent} remain in effect while the stack of the receiving
  *     {@link android.app.Activity} is active. When the stack finishes, the permissions are
- *     automatically removed. Permissions granted to one {@link android.app.Activity} in a client
+ *     automatically removed. Permissions granted to com.ssract.one {@link android.app.Activity} in a client
  *     app are automatically extended to other components of that app.
  *     </p>
  * </li>
@@ -314,7 +314,7 @@ import static org.xmlpull.v1.XmlPullParser.START_TAG;
  * <p class="note">
  *  <strong>Note:</strong> The {@link Intent#setClipData(ClipData) Intent.setClipData()} method is
  *  only available in platform version 16 (Android 4.1) and later. If you want to maintain
- *  compatibility with previous versions, you should send one content URI at a time in the
+ *  compatibility with previous versions, you should send com.ssract.one content URI at a time in the
  *  {@link Intent}. Set the action to {@link Intent#ACTION_SEND} and put the URI in data by calling
  *  {@link Intent#setData setData()}.
  * </p>

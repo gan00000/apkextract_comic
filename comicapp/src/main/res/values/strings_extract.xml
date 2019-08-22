@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Apk Extractor</string>
+    <string name="app_loading">Loading app</string>
+    <string name="app_extra_error"> extract error</string>
+    <string name="app_extra_success"> have extracted to </string>
+    <string name="app_extract">extract</string>
+    <string name="userapp">user app</string>
+    <string name="systemapp">system app</string>
+    <string name="ok_confirm">OK</string>
+    <string name="comic">Comic</string>
+
+
+</resources>

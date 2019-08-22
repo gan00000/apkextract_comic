@@ -91,7 +91,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity imp
      *
      * <p>Retrieve a reference to this activity's ActionBar.
      *
-     * @return The Activity's ActionBar, or null if it does not have one.
+     * @return The Activity's ActionBar, or null if it does not have com.ssract.one.
      */
     @Nullable
     public ActionBar getSupportActionBar() {

@@ -51,7 +51,7 @@ import java.util.List;
  * in the tank diminishes (also 1/4 tank at a time).
  *
  * The user can also purchase a "premium upgrade" that gives them a red car
- * instead of the standard blue one (exciting!).
+ * instead of the standard blue com.ssract.one (exciting!).
  *
  * The user can also purchase a subscription ("infinite gas") that allows them
  * to drive without using up any gas while that subscription is active.
@@ -60,7 +60,7 @@ import java.util.List;
  *
  * PREMIUM: the item is purchased and NEVER consumed. So, after the original
  * purchase, the player will always own that item. The application knows to
- * display the red car instead of the blue one because it queries whether
+ * display the red car instead of the blue com.ssract.one because it queries whether
  * the premium "item" is owned or not.
  *
  * INFINITE GAS: this is a subscription, and subscriptions can't be consumed.
@@ -121,7 +121,7 @@ public class SkyPayActivity extends AppCompatActivity {
          * program,  construct the key at runtime from pieces or
          * use bit manipulation (for example, XOR with some other string) to hide
          * the actual key.  The key itself is not secret information, but we don't
-         * want to make it easy for an attacker to replace the public key with one
+         * want to make it easy for an attacker to replace the public key with com.ssract.one
          * of their own and then fake messages from the server.
          */
 
@@ -277,22 +277,22 @@ public class SkyPayActivity extends AppCompatActivity {
 
         /*
          * TODO: verify that the developer payload of the purchase is correct. It will be
-         * the same one that you sent when initiating the purchase.
+         * the same com.ssract.one that you sent when initiating the purchase.
          *
          * WARNING: Locally generating a random string when starting a purchase and
          * verifying it here might seem like a good approach, but this will fail in the
-         * case where the user purchases an item on one device and then uses your app on
+         * case where the user purchases an item on com.ssract.one device and then uses your app on
          * a different device, because on the other device you will not have access to the
          * random string you originally generated.
          *
          * So a good developer payload has these characteristics:
          *
          * 1. If two different users purchase an item, the payload is different between them,
-         *    so that one user's purchase can't be replayed to another user.
+         *    so that com.ssract.one user's purchase can't be replayed to another user.
          *
          * 2. The payload must be such that you can verify it even when the app wasn't the
-         *    one who initiated the purchase flow (so that items purchased by the user on
-         *    one device work on other devices owned by the user).
+         *    com.ssract.one who initiated the purchase flow (so that items purchased by the user on
+         *    com.ssract.one device work on other devices owned by the user).
          *
          * Using your own server to store and verify developer payloads across app
          * installations is recommended.
@@ -364,8 +364,8 @@ public class SkyPayActivity extends AppCompatActivity {
             Log.d(TAG, "Consumption finished. Purchase: " + purchase + ", result: " + result);
 
             payFinish(true);
-            // We know this is the "gas" sku because it's the only one we consume,
-            // so we don't check which sku was consumed. If you have more than one
+            // We know this is the "gas" sku because it's the only com.ssract.one we consume,
+            // so we don't check which sku was consumed. If you have more than com.ssract.one
             // sku, you probably should check...
             if (result.isSuccess()) {
                 // successfully consumed, so we apply the effects of the item in our

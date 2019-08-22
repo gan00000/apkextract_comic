@@ -125,7 +125,7 @@ public class SwitchPreference extends TwoStatePreference {
 
     /**
      * Set the text displayed on the switch widget in the on state.
-     * This should be a very short string; one word if possible.
+     * This should be a very short string; com.ssract.one word if possible.
      *
      * @param onText Text to display in the on state
      */
@@ -136,7 +136,7 @@ public class SwitchPreference extends TwoStatePreference {
 
     /**
      * Set the text displayed on the switch widget in the off state.
-     * This should be a very short string; one word if possible.
+     * This should be a very short string; com.ssract.one word if possible.
      *
      * @param offText Text to display in the off state
      */
@@ -147,7 +147,7 @@ public class SwitchPreference extends TwoStatePreference {
 
     /**
      * Set the text displayed on the switch widget in the on state.
-     * This should be a very short string; one word if possible.
+     * This should be a very short string; com.ssract.one word if possible.
      *
      * @param resId The text as a string resource ID
      */
@@ -157,7 +157,7 @@ public class SwitchPreference extends TwoStatePreference {
 
     /**
      * Set the text displayed on the switch widget in the off state.
-     * This should be a very short string; one word if possible.
+     * This should be a very short string; com.ssract.one word if possible.
      *
      * @param resId The text as a string resource ID
      */

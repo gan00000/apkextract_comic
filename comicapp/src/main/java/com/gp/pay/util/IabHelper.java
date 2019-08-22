@@ -38,7 +38,7 @@ import java.util.List;
 
 
 /**
- * Provides convenience methods for in-app billing. You can create one instance of this
+ * Provides convenience methods for in-app billing. You can create com.ssract.one instance of this
  * class for your application and use it to process in-app billing operations.
  * It provides synchronous (blocking) and asynchronous (non-blocking) methods for
  * many common in-app billing operations, as well as automatic signature
@@ -62,8 +62,8 @@ import java.util.List;
  * A note about threading: When using this object from a background thread, you may
  * call the blocking versions of methods; when using from a UI thread, call
  * only the asynchronous versions and handle the results via callbacks.
- * Also, notice that you can only call one asynchronous operation at a time;
- * attempting to start a second asynchronous operation while the first one
+ * Also, notice that you can only call com.ssract.one asynchronous operation at a time;
+ * attempting to start a second asynchronous operation while the first com.ssract.one
  * has not yet completed will result in an exception being thrown.
  *
  * @author Bruno Oliveira (Google)
@@ -84,7 +84,7 @@ public class IabHelper {
     boolean mSubscriptionsSupported = false;
 
     // Is an asynchronous operation in progress?
-    // (only one at a time can be in progress)
+    // (only com.ssract.one at a time can be in progress)
     boolean mAsyncInProgress = false;
 
     // (for logging/debugging)

@@ -477,7 +477,7 @@ class HtmlToSpannedConverter implements ContentHandler {
             int start = mSpannableStringBuilder.getSpanStart(obj[i]);
             int end = mSpannableStringBuilder.getSpanEnd(obj[i]);
 
-            // If the last line of the range is blank, back off by one.
+            // If the last line of the range is blank, back off by com.ssract.one.
             if (end - 2 >= 0) {
                 if (mSpannableStringBuilder.charAt(end - 1) == '\n' &&
                         mSpannableStringBuilder.charAt(end - 2) == '\n') {

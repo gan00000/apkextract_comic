@@ -202,7 +202,7 @@ public class Base64 {
         //          >>18  >>12  >> 6  >> 0  Right shift necessary
         //                0x3f  0x3f  0x3f  Additional AND
 
-        // Create buffer with zero-padding if there are only one or two
+        // Create buffer with zero-padding if there are only com.ssract.one or two
         // significant bytes passed in the array.
         // We have to shift left 24 in order to flush out the 1's that appear
         // when Java treats a value as negative that is cast from a byte to an int.
@@ -293,7 +293,7 @@ public class Base64 {
      * @param off offset in array where conversion should begin
      * @param len length of data to convert
      * @param alphabet is the encoding alphabet
-     * @param maxLineLength maximum length of one line.
+     * @param maxLineLength maximum length of com.ssract.one line.
      * @return the BASE64-encoded byte array
      */
     public static byte[] encode(byte[] source, int off, int len, byte[] alphabet,

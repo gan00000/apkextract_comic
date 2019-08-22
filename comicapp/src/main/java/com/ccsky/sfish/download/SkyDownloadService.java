@@ -472,7 +472,7 @@ public class SkyDownloadService extends Service implements DownloadManager.Downl
         }
     }
 
-    // TODO Include all notification in one delay
+    // TODO Include all notification in com.ssract.one delay
     // Avoid frequent notification
     private static class NotificationDelay implements Runnable {
 

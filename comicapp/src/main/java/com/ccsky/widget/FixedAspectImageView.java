@@ -240,7 +240,7 @@ public class FixedAspectImageView extends AppCompatImageView {
         if (resizeWidth || resizeHeight) {
             // If we get here, it means we want to resize to match the
             // drawables aspect ratio, and we have the freedom to change at
-            // least one dimension.
+            // least com.ssract.one dimension.
 
             // Get the max possible width given our constraints
             widthSize = resolveAdjustedSize(w + pLeft + pRight, mMinWidth, mMaxWidth, widthMeasureSpec);

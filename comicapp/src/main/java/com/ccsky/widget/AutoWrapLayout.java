@@ -116,7 +116,7 @@ public class AutoWrapLayout extends ViewGroup {
 
     // TODO Take vertical mode
     /**
-     * each row or line at least show one child
+     * each row or line at least show com.ssract.one child
      *
      * horizontal only show child can show or partly show in parent
      */

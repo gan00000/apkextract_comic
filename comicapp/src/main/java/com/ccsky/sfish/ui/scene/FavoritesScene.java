@@ -1196,7 +1196,7 @@ public class FavoritesScene extends SkyBaseScene implements
         @Override
         public void onFailure(Exception e) {
             // TODO It's a failure, add all of backup back to db.
-            // But how to known which one is failed?
+            // But how to known which com.ssract.one is failed?
             SkyDB.putLocalFavorites(mBackup);
 
             FavoritesScene scene = getScene();

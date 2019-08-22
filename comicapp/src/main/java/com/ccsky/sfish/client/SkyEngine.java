@@ -266,7 +266,7 @@ public class SkyEngine {
     // At least, GalleryInfo contain valid gid and token
     public static List<GalleryInfo> fillGalleryListByApi(@Nullable SkyClient.Task task, OkHttpClient okHttpClient,
                                                          List<GalleryInfo> galleryInfoList, String referer) throws Throwable {
-        // We can only request 25 items one time at most
+        // We can only request 25 items com.ssract.one time at most
         final int MAX_REQUEST_SIZE = 25;
         List<GalleryInfo> requestItems = new ArrayList<>(MAX_REQUEST_SIZE);
         for (int i = 0, size = galleryInfoList.size(); i < size; i++) {

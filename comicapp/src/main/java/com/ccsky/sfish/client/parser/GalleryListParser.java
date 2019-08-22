@@ -249,7 +249,7 @@ public class GalleryListParser {
         Element ir = JsoupUtils.getElementByClass(e, "ir");
         if (ir != null) {
             gi.rating = NumberUtils.parseFloatSafely(parseRating(ir.attr("style")), -1.0f);
-            // TODO The gallery may be rated even if it doesn't has one of these classes
+            // TODO The gallery may be rated even if it doesn't has com.ssract.one of these classes
             gi.rated = ir.hasClass("irr") || ir.hasClass("irg") || ir.hasClass("irb");
         }
 
@@ -339,7 +339,7 @@ public class GalleryListParser {
                 es = itg.children();
             }
             List<GalleryInfo> list = new ArrayList<>(es.size());
-            // First one is table header, skip it
+            // First com.ssract.one is table header, skip it
             for (int i = 0; i < es.size(); i++) {
                 GalleryInfo gi = parseGalleryInfo(es.get(i));
                 if (null != gi) {

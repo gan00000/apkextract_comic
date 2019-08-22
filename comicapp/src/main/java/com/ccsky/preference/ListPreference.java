@@ -127,7 +127,7 @@ public class ListPreference extends DialogPreference {
     }
 
     /**
-     * Sets the value of the key. This should be one of the entries in
+     * Sets the value of the key. This should be com.ssract.one of the entries in
      * {@link #getEntryValues()}.
      *
      * @param value The value to set for the key.
@@ -194,7 +194,7 @@ public class ListPreference extends DialogPreference {
     }
 
     /**
-     * Returns the value of the key. This should be one of the entries in
+     * Returns the value of the key. This should be com.ssract.one of the entries in
      * {@link #getEntryValues()}.
      *
      * @return The value of the key.

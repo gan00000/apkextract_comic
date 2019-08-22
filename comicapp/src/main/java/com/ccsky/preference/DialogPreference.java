@@ -81,7 +81,7 @@ public abstract class DialogPreference extends Preference implements
         mDialogTitle = a.getString(R.styleable.DialogPreference_dialogTitle);
         if (mDialogTitle == null) {
             // Fallback on the regular title of the preference
-            // (the one that is seen in the list)
+            // (the com.ssract.one that is seen in the list)
             mDialogTitle = getTitle();
         }
         mDialogIcon = a.getDrawable(R.styleable.DialogPreference_dialogIcon);

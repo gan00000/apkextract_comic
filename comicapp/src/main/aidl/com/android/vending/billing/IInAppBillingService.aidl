@@ -27,7 +27,7 @@ import android.os.Bundle;
  *    after it completes.
  * 3. Purchase information of in-app purchases is maintained within the Google Play system
  *    till the purchase is consumed.
- * 4. An API to consume a purchase of an inapp item. All purchases of one-time
+ * 4. An API to consume a purchase of an inapp item. All purchases of com.ssract.one-time
  *    in-app items are consumable and thereafter can be purchased again.
  * 5. An API to get current purchases of the user immediately. This will not contain any
  *    consumed purchases.
@@ -48,7 +48,7 @@ interface IInAppBillingService {
      * Minimum API version supported by this interface is 3.
      * @param apiVersion the billing version which the app is using
      * @param packageName the package name of the calling app
-     * @param type type of the in-app item being purchased "inapp" for one-time purchases
+     * @param type type of the in-app item being purchased "inapp" for com.ssract.one-time purchases
      *        and "subs" for subscription.
      * @return RESULT_OK(0) on success, corresponding result code on failures
      */
@@ -78,7 +78,7 @@ interface IInAppBillingService {
      * @param apiVersion billing API version that the app is using
      * @param packageName package name of the calling app
      * @param productId the SKU of the in-app item as published in the developer console
-     * @param type the type of the in-app item ("inapp" for one-time purchases
+     * @param type the type of the in-app item ("inapp" for com.ssract.one-time purchases
      *        and "subs" for subscription).
      * @param developerPayload optional argument to be sent back with the purchase information
      * @return Bundle containing the following key-value pairs
@@ -113,7 +113,7 @@ interface IInAppBillingService {
      * @param apiVersion billing API version that the app is using
      * @param packageName package name of the calling app
      * @param type the type of the in-app items being requested
-     *        ("inapp" for one-time purchases and "subs" for subscription).
+     *        ("inapp" for com.ssract.one-time purchases and "subs" for subscription).
      * @param continuationToken to be set as null for the first call, if the number of owned
      *        skus are too many, a continuationToken is returned in the response bundle.
      *        This method can be called again with the continuation token to get the next set of

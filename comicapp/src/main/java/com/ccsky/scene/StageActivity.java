@@ -519,7 +519,7 @@ public abstract class StageActivity extends SkyActivity {
 
         Fragment next = null;
         if (index == mSceneTagList.size() - 1) {
-            // It is first fragment, show the next one
+            // It is first fragment, show the next com.ssract.one
             next = fragmentManager.findFragmentByTag(mSceneTagList.get(index - 1));
         }
 

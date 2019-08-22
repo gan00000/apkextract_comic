@@ -1,0 +1,83 @@
+<resources>
+
+
+    <style name="Starpy.Theme.AppCompat.Dialog.NoTitle" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowFrame">@null</item>  <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item> <!-- 是否悬浮在activity上 -->
+        <item name="android:windowIsTranslucent">false</item>  <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item> <!-- 无标题 -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>  <!-- 背景透明 -->
+        <item name="android:backgroundDimAmount">0.3</item>  <!-- 灰度 -->
+    </style>
+
+
+    <!--<style name="Activity_TransparentDialog" parent="@android:style/Theme.Dialog">-->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--<item name="android:windowFrame">@null</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowIsFloating">true</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
+        <!--<item name="android:backgroundDimEnabled">true</item>-->
+    <!--</style>-->
+
+    <style name="Starpy.Theme.AppCompat.Dialog.Notitle.Fullscreen" parent="@style/Theme.AppCompat.Dialog">
+
+        <!--<item name="android:windowIsTranslucent">false</item>-->
+        <!--<item name="android:background">@android:color/transparent</item>-->
+        <!--<item name="android:backgroundDimAmount">0.8</item>-->
+
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Activity.Theme.AppCompat.Light.NoActionBar" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <style name="Activity.Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <style name="Activity.Theme.AppCompat.Light.NoActionBar.FullScreen.Translucent" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimAmount">0.3</item>
+
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="MyTablayoutstyle" parent="Base.Widget.Design.TabLayout">
+        <item name="tabBackground">@android:color/white</item>
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+        <item name="android:textSize">15sp</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+</resources>
