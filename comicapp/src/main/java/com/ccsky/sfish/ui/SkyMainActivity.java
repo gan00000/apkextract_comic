@@ -37,15 +37,21 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
+
 import com.ccsky.io.UniFileInputStreamPipe;
 import com.ccsky.network.Network;
 import com.ccsky.scene.Announcer;
 import com.ccsky.scene.SceneFragment;
 import com.ccsky.scene.StageActivity;
 import com.ccsky.sfish.AppConfig;
-import com.ccsky.sfish.SkyApplication;
 import com.ccsky.sfish.R;
 import com.ccsky.sfish.Settings;
+import com.ccsky.sfish.SkyApplication;
 import com.ccsky.sfish.client.EhTagDatabase;
 import com.ccsky.sfish.client.EhUrlOpener;
 import com.ccsky.sfish.client.SkyUtils;
@@ -53,7 +59,6 @@ import com.ccsky.sfish.client.data.ListUrlBuilder;
 import com.ccsky.sfish.client.parser.GalleryDetailUrlParser;
 import com.ccsky.sfish.client.parser.GalleryPageUrlParser;
 import com.ccsky.sfish.ui.scene.AnalyticsScene;
-import com.ccsky.sfish.ui.scene.SkyBaseScene;
 import com.ccsky.sfish.ui.scene.CookieSignInScene;
 import com.ccsky.sfish.ui.scene.DownloadLabelsScene;
 import com.ccsky.sfish.ui.scene.DownloadsScene;
@@ -69,6 +74,7 @@ import com.ccsky.sfish.ui.scene.QuickSearchScene;
 import com.ccsky.sfish.ui.scene.SecurityScene;
 import com.ccsky.sfish.ui.scene.SelectSiteScene;
 import com.ccsky.sfish.ui.scene.SignInScene;
+import com.ccsky.sfish.ui.scene.SkyBaseScene;
 import com.ccsky.sfish.ui.scene.SkySolidScene;
 import com.ccsky.sfish.ui.scene.WarningScene;
 import com.ccsky.sfish.ui.scene.WebViewSignInScene;
@@ -89,12 +95,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AlertDialog;
 
 public final class SkyMainActivity extends StageActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -123,6 +123,7 @@ public final class SkyMainActivity extends StageActivity
     private Button mChangeTheme;
 
     private int mNavCheckedItem = 0;
+
 
     static {
         registerLaunchMode(SecurityScene.class, SceneFragment.LAUNCH_MODE_SINGLE_TASK);

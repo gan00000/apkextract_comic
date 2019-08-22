@@ -85,7 +85,6 @@ import com.ccsky.sfish.widget.SearchBar;
 import com.ccsky.sfish.widget.SearchLayout;
 import com.ccsky.util.AppHelper;
 import com.ccsky.util.DrawableManager;
-import com.ccsky.util.PayUtil;
 import com.ccsky.view.ViewTransition;
 import com.ccsky.widget.ContentLayout;
 import com.ccsky.widget.FabLayout;
@@ -221,9 +220,9 @@ public final class GalleryListScene extends SkyBaseScene
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 
-            if (dy > 0 && !PayUtil.isCanView(getActivity2())){
-                showBuyTip();
-            }
+//            if (dy > 0 && !PayUtil.isCanView(getActivity2())){
+//                showBuyTip();
+//            }
 
             if (dy >= mHideActionFabSlop) {
                 hideActionFab();
@@ -956,15 +955,17 @@ public final class GalleryListScene extends SkyBaseScene
             return false;
         }
 
-        long time = System.currentTimeMillis();
-        if (time - mPressBackTime > BACK_PRESSED_INTERVAL) {
-            // It is the last scene
-            mPressBackTime = time;
-            showTip(R.string.press_twice_exit, LENGTH_SHORT);
-            return true;
-        } else {
-            return false;
-        }
+//        long time = System.currentTimeMillis();
+//        if (time - mPressBackTime > BACK_PRESSED_INTERVAL) {
+//            // It is the last scene
+//            mPressBackTime = time;
+//            showTip(R.string.press_twice_exit, LENGTH_SHORT);
+//            return true;
+//        } else {
+//            return false;
+//        }
+
+        return false;
     }
 
     @Override

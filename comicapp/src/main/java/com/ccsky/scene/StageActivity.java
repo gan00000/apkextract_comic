@@ -20,16 +20,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.ccsky.sfish.ui.SkyActivity;
 import com.ccsky.sfish.R;
+import com.ccsky.sfish.ui.SkyActivity;
 import com.hippo.yorozuya.AssertUtils;
 import com.hippo.yorozuya.IntIdGenerator;
+import com.ssract.one.ad.AdConfig;
+import com.ssract.one.ad.CCAdmobManager;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -58,6 +62,8 @@ public abstract class StageActivity extends SkyActivity {
     private int mStageId = IntIdGenerator.INVALID_ID;
 
     private final SceneViewComparator mSceneViewComparator = new SceneViewComparator();
+
+    CCAdmobManager ccAdmobManager;
 
     private final class SceneViewComparator implements Comparator<View> {
 
@@ -177,6 +183,10 @@ public abstract class StageActivity extends SkyActivity {
 
         // Create layout
         onCreate2(savedInstanceState);
+
+        ccAdmobManager = new CCAdmobManager(this);
+
+        ccAdmobManager.loadAndShowInterstitialAd(AdConfig.InterstitialAd_unitId);
 
         Intent intent = getIntent();
         if (savedInstanceState == null) {
