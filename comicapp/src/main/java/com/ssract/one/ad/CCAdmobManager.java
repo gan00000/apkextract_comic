@@ -2,6 +2,7 @@ package com.ssract.one.ad;
 
 import android.app.Activity;
 
+import com.ccsky.sfish.BuildConfig;
 import com.core.base.utils.PL;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -33,7 +34,11 @@ public class CCAdmobManager {
     private void initInterstitialAd(String unitId, boolean showImmediately) {
         //        mInterstitialAd.setAdUnitId("ca-app-pub-4247177623554873/7118605830");
         mInterstitialAd.setAdUnitId(unitId);
-        mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice("92AE37D588CFFF9DF177431BFB9AF7A9").build());
+        if (BuildConfig.DEBUG) {
+            mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice("92AE37D588CFFF9DF177431BFB9AF7A9").build());
+        }else {
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        }
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -151,15 +156,15 @@ public class CCAdmobManager {
                 PL.i("AD onAdClosed");
             }
         });
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("92AE37D588CFFF9DF177431BFB9AF7A9")
-                .build();
-//        boolean isTestDevice = adRequest.isTestDevice(this);
-//        if (isTestDevice){
-//            PL.i("AD isTestDevice");
-//        }else {
-//            PL.i("AD isTestDevice");
-//        }
+        AdRequest adRequest = null;
+        if (BuildConfig.DEBUG) {
+            adRequest = new AdRequest.Builder()
+                    .addTestDevice("92AE37D588CFFF9DF177431BFB9AF7A9")
+                    .build();
+        }else {
+            adRequest = new AdRequest.Builder()
+                    .build();
+        }
         mAdView.loadAd(adRequest);
     }
 

@@ -14,7 +14,17 @@ android {
             keyAlias = 'sfish0000'
             keyPassword 'sfish0000'
         }
+
+        appSign {
+            keyAlias 'mmsdka'
+            keyPassword 'apk888999'
+            storeFile file('../key/apkextrato.keystore')
+            storePassword 'apk888999'
+        }
     }
+
+
+
     compileSdkVersion 28
 
     defaultConfig {
@@ -24,8 +34,8 @@ android {
         minSdkVersion 18
         targetSdkVersion 28
 
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "4.0"
         vectorDrawables.useSupportLibrary = true
         resConfigs "zh", "zh-rCN", "zh-rHK", "zh-rTW",
                 "es", "ja", "ko", "fr", "de", "th"
@@ -33,7 +43,7 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         multiDexEnabled true
-        signingConfig signingConfigs.sign_release
+        signingConfig signingConfigs.appSign
     }
 
     compileOptions {
@@ -54,11 +64,12 @@ android {
             shrinkResources true  // 是否去除无效的资源文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'FILE_PROVIDER_AUTHORITY', '"com.ccsky.sfish.fileprovider"'
+            signingConfig signingConfigs.appSign
         }
         debug {
 //            applicationIdSuffix ".debug"
             buildConfigField 'String', 'FILE_PROVIDER_AUTHORITY', '"com.ccsky.sfish.fileprovider"'
-            signingConfig signingConfigs.sign_release
+            signingConfig signingConfigs.appSign
         }
     }
 

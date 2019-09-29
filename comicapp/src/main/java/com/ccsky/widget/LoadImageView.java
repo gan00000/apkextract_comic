@@ -221,6 +221,9 @@ public class LoadImageView extends FixedAspectImageView implements Unikery<Image
             return;
         }
 
+        if (url.startsWith("https://ul.ehgt.org/")){
+            url = url.replace("https://ul.ehgt.org/","https://ehgt.org/t/");
+        }
         mFailed = false;
         clearRetry();
 

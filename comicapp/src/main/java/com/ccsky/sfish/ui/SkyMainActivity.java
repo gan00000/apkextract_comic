@@ -91,11 +91,14 @@ import com.hippo.yorozuya.IOUtils;
 import com.hippo.yorozuya.ResourcesUtils;
 import com.hippo.yorozuya.SimpleHandler;
 import com.hippo.yorozuya.ViewUtils;
+import com.ssract.one.ad.AdConfig;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public final class SkyMainActivity extends StageActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -124,6 +127,9 @@ public final class SkyMainActivity extends StageActivity
     private Button mChangeTheme;
 
     private int mNavCheckedItem = 0;
+
+    TimerTask timerTask;
+    Timer timer;
 
 
     static {
@@ -377,6 +383,22 @@ public final class SkyMainActivity extends StageActivity
         EhTagDatabase.update(this);
 
         ccAdmobManager.showAdViewBanner(mAdView);
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                SkyMainActivity.this.runOnUiThread(new TimerTask() {
+                    @Override
+                    public void run() {
+                        ccAdmobManager.showAdViewBanner(mAdView);
+                        ccAdmobManager.loadAndShowInterstitialAd(AdConfig.InterstitialAd_unitId);
+                    }
+                });
+            }
+        };
+
+        timer = new Timer();
+        timer.schedule(timerTask, 2*1000*1000, 3*1000*1000);
+
     }
 
     private String getThemeText() {
@@ -452,6 +474,7 @@ public final class SkyMainActivity extends StageActivity
         mRightDrawer = null;
         mAvatar = null;
         mDisplayName = null;
+        timer.cancel();
     }
 
     @Override
