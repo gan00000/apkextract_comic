@@ -82,6 +82,7 @@ import com.ccsky.sfish.widget.EhDrawerLayout;
 import com.ccsky.util.BitmapUtils;
 import com.ccsky.util.PermissionRequester;
 import com.ccsky.widget.LoadImageView;
+import com.google.android.gms.ads.AdView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.hippo.drawerlayout.DrawerLayout;
@@ -326,6 +327,8 @@ public final class SkyMainActivity extends StageActivity
         return processAnnouncer(new Announcer(clazz).setArgs(args));
     }
 
+    private AdView mAdView;
+
     @Override
     protected void onCreate2(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
@@ -337,6 +340,9 @@ public final class SkyMainActivity extends StageActivity
         mAvatar = (LoadImageView) ViewUtils.$$(headerLayout, R.id.avatar);
         mDisplayName = (TextView) ViewUtils.$$(headerLayout, R.id.display_name);
         mChangeTheme = (Button) ViewUtils.$$(this, R.id.change_theme);
+
+        mAdView = findViewById(R.id.app_adView);
+
 
         mDrawerLayout.setStatusBarColor(ResourcesUtils.getAttrColor(this, R.attr.colorPrimaryDark));
         // Pre-L need shadow drawable
@@ -369,6 +375,8 @@ public final class SkyMainActivity extends StageActivity
         }
 
         EhTagDatabase.update(this);
+
+        ccAdmobManager.showAdViewBanner(mAdView);
     }
 
     private String getThemeText() {

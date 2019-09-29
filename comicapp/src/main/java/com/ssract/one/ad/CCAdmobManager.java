@@ -90,7 +90,7 @@ public class CCAdmobManager {
     /**
      * 需要先调用loadInterstitialAd
      */
-    private void showInterstitialAd(){
+    public void showInterstitialAd(){
 
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -101,7 +101,7 @@ public class CCAdmobManager {
 
 
 
-    private void showAdViewBanner(AdView mAdView) {
+    public void showAdViewBanner(AdView mAdView) {
 
         mAdView.setAdListener(new AdListener() {
             @Override

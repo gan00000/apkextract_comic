@@ -15,10 +15,12 @@
   ~ limitations under the License.
   -->
 
-<com.ccsky.widget.SafeCoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ccsky.widget.SafeCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    >
 
     <com.ccsky.sfish.widget.EhDrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -69,4 +71,19 @@
             android:clickable="true"/>
 
     </com.ccsky.sfish.widget.EhDrawerLayout>
+
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/app_adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-4247177623554873/5126463398">
+    </com.google.android.gms.ads.AdView>
+
+
+
 </com.ccsky.widget.SafeCoordinatorLayout>

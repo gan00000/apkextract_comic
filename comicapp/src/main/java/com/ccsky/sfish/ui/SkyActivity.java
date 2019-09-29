@@ -21,6 +21,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.ccsky.content.ContextLocalWrapper;
 import com.ccsky.sfish.Analytics;
 import com.ccsky.sfish.R;
@@ -30,10 +34,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.hippo.android.resource.AttrResources;
 
 import java.util.Locale;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
-import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class SkyActivity extends AppCompatActivity {
 
@@ -67,6 +67,8 @@ public abstract class SkyActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+
         if(Settings.getEnabledSecurity()){
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
                     WindowManager.LayoutParams.FLAG_SECURE);

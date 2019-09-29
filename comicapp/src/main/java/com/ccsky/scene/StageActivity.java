@@ -63,7 +63,7 @@ public abstract class StageActivity extends SkyActivity {
 
     private final SceneViewComparator mSceneViewComparator = new SceneViewComparator();
 
-    CCAdmobManager ccAdmobManager;
+    protected CCAdmobManager ccAdmobManager;
 
     private final class SceneViewComparator implements Comparator<View> {
 
@@ -182,9 +182,10 @@ public abstract class StageActivity extends SkyActivity {
         }
 
         // Create layout
+        ccAdmobManager = new CCAdmobManager(this);
+
         onCreate2(savedInstanceState);
 
-        ccAdmobManager = new CCAdmobManager(this);
 
         ccAdmobManager.loadAndShowInterstitialAd(AdConfig.InterstitialAd_unitId);
 
@@ -208,6 +209,12 @@ public abstract class StageActivity extends SkyActivity {
             // Can't recognize intent
             onUnrecognizedIntent(intent);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     @Override
