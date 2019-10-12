@@ -35,8 +35,10 @@ public class CCAdmobManager {
         //        mInterstitialAd.setAdUnitId("ca-app-pub-4247177623554873/7118605830");
         mInterstitialAd.setAdUnitId(unitId);
         if (BuildConfig.DEBUG) {
+            PL.i("AD debug");
             mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice("92AE37D588CFFF9DF177431BFB9AF7A9").build());
         }else {
+            PL.i("AD release");
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
         }
         mInterstitialAd.setAdListener(new AdListener() {

@@ -308,7 +308,7 @@ public class MainActivityNew extends AppCompatActivity {
                                    if (isShowMic){
                                        comicMenuItem.setVisible(true);
                                    }else {
-                                       comicMenuItem.setVisible(true);
+                                       comicMenuItem.setVisible(false);
                                    }
                                }
                            });
