@@ -17,7 +17,7 @@
 
 <resources>
 
-    <string name="app_name">First comic</string>
+    <string name="app_name">Comic Master</string>
 
     <!-- Theme -->
     <string name="theme_light">ธีมสีสว่าง</string>

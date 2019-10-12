@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Apk Extractor</string>
+    <string name="app_name">Comic Master</string>
     <string name="app_loading">Loading app</string>
     <string name="app_extra_error"> extract error</string>
     <string name="app_extra_success"> have extracted to </string>

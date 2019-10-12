@@ -183,11 +183,12 @@ public abstract class StageActivity extends SkyActivity {
 
         // Create layout
         ccAdmobManager = new CCAdmobManager(this);
+        ccAdmobManager.setInterstitialAdId(AdConfig.InterstitialAd_unitId);
 
         onCreate2(savedInstanceState);
 
 
-        ccAdmobManager.loadAndShowInterstitialAd(AdConfig.InterstitialAd_unitId);
+//        ccAdmobManager.loadAndShowInterstitialAd(AdConfig.InterstitialAd_unitId);
 
         Intent intent = getIntent();
         if (savedInstanceState == null) {

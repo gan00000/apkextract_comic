@@ -22,6 +22,10 @@ public class CCAdmobManager {
         mInterstitialAd = new InterstitialAd(activity);
     }
 
+    public void setInterstitialAdId(String unitId){
+        mInterstitialAd.setAdUnitId(unitId);
+    }
+
     public void loadAndShowInterstitialAd(String unitId){
         initInterstitialAd(unitId,true);
     }
@@ -33,7 +37,7 @@ public class CCAdmobManager {
 
     private void initInterstitialAd(String unitId, boolean showImmediately) {
         //        mInterstitialAd.setAdUnitId("ca-app-pub-4247177623554873/7118605830");
-        mInterstitialAd.setAdUnitId(unitId);
+
         if (BuildConfig.DEBUG) {
             PL.i("AD debug");
             mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice("92AE37D588CFFF9DF177431BFB9AF7A9").build());

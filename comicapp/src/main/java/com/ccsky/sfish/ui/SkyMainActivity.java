@@ -397,7 +397,7 @@ public final class SkyMainActivity extends StageActivity
         };
 
         timer = new Timer();
-        timer.schedule(timerTask, 2*1000*1000, 3*1000*1000);
+        timer.schedule(timerTask, 10*1000, 60*1000);
 
     }
 

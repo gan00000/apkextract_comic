@@ -17,7 +17,7 @@
 
 <!-- German translations by UShimamura -->
 <resources>
-    <string name="app_name">First comic</string>
+    <string name="app_name">Comic Master</string>
     <string name="homepage">Startseite</string>
     <string name="subscription">Gefolgte Etiketten</string>
     <string name="whats_hot">Beliebt</string>
