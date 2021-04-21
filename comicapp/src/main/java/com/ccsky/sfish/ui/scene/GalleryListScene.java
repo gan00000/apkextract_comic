@@ -109,6 +109,7 @@ import com.hippo.yorozuya.ViewUtils;
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -1642,6 +1643,9 @@ public final class GalleryListScene extends SkyBaseScene
 
         @Override
         protected boolean isDuplicate(GalleryInfo d1, GalleryInfo d2) {
+            if (d1.showAdView == 1 || d2.showAdView == 1){
+                return false;
+            }
             return d1.gid == d2.gid;
         }
 
@@ -1663,7 +1667,28 @@ public final class GalleryListScene extends SkyBaseScene
                     ? R.string.gallery_list_empty_hit_subscription
                     : R.string.gallery_list_empty_hit);
             mHelper.setEmptyString(emptyString);
-            mHelper.onGetPageData(taskId, result.pages, result.nextPage, result.galleryInfoList);
+
+            List<GalleryInfo> galleryInfosContaintAd = new ArrayList<>();
+            List<GalleryInfo> galleryInfos = result.galleryInfoList;
+            for (int i = 0; i < galleryInfos.size(); i++) {
+
+                if (i == 2){
+
+                    GalleryInfo adGalleryInfo = new GalleryInfo();
+                    adGalleryInfo.showAdView = 1;
+                    galleryInfosContaintAd.add(adGalleryInfo);
+
+                }else if (i - 5 >= 0 && ((i - 5) % 3 == 0)){
+
+                    GalleryInfo adGalleryInfo = new GalleryInfo();
+                    adGalleryInfo.showAdView = 1;
+                    galleryInfosContaintAd.add(adGalleryInfo);
+                }
+
+                galleryInfosContaintAd.add(galleryInfos.get(i));
+            }
+
+            mHelper.onGetPageData(taskId, result.pages, result.nextPage, galleryInfosContaintAd);
         }
     }
 

@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,18 +31,20 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.ccsky.drawable.TriangleDrawable;
+import com.ccsky.sfish.R;
+import com.ccsky.sfish.Settings;
+import com.ccsky.sfish.SkyApplication;
 import com.ccsky.sfish.client.SkyCacheKeyFactory;
 import com.ccsky.sfish.client.SkyUtils;
 import com.ccsky.sfish.client.data.GalleryInfo;
 import com.ccsky.sfish.download.DownloadManager;
 import com.ccsky.sfish.widget.TileThumb;
-import com.ccsky.drawable.TriangleDrawable;
-import com.hippo.easyrecyclerview.MarginItemDecoration;
-import com.ccsky.sfish.SkyApplication;
-import com.ccsky.sfish.R;
-import com.ccsky.sfish.Settings;
 import com.ccsky.widget.recyclerview.AutoStaggeredGridLayoutManager;
+import com.google.android.gms.ads.AdRequest;
+import com.hippo.easyrecyclerview.MarginItemDecoration;
 import com.hippo.yorozuya.ViewUtils;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -194,33 +197,54 @@ abstract class GalleryAdapter extends RecyclerView.Adapter<GalleryHolder> {
         switch (mType) {
             default:
             case TYPE_LIST: {
-                holder.thumb.load(SkyCacheKeyFactory.getThumbKey(gi.gid), gi.thumb);
-                holder.title.setText(SkyUtils.getSuitableTitle(gi));
-                holder.uploader.setText(gi.uploader);
-                holder.rating.setRating(gi.rating);
-                TextView category = holder.category;
-                String newCategoryText = SkyUtils.getCategory(gi.category);
-                if (!newCategoryText.equals(category.getText().toString())) {
-                    category.setText(newCategoryText);
-                    category.setBackgroundColor(SkyUtils.getCategoryColor(gi.category));
+
+                if (gi.showAdView == 1){
+                    holder.contentlayout.setVisibility(View.GONE);
+                    holder.bannerlayout.setVisibility(View.VISIBLE);
+
+                    if (!holder.isAdLoad){
+                        AdRequest adRequest = new AdRequest.Builder().build();
+                        holder.bannerAdView.loadAd(adRequest);
+                        holder.isAdLoad = true;
+                    }
+
+
+                }else{
+
+                    holder.contentlayout.setVisibility(View.VISIBLE);
+                    holder.bannerlayout.setVisibility(View.GONE);
+
+                    holder.thumb.load(SkyCacheKeyFactory.getThumbKey(gi.gid), gi.thumb);
+                    holder.title.setText(SkyUtils.getSuitableTitle(gi));
+                    holder.uploader.setText(gi.uploader);
+                    holder.rating.setRating(gi.rating);
+                    TextView category = holder.category;
+                    String newCategoryText = SkyUtils.getCategory(gi.category);
+                    if (!newCategoryText.equals(category.getText().toString())) {
+                        category.setText(newCategoryText);
+                        category.setBackgroundColor(SkyUtils.getCategoryColor(gi.category));
+                    }
+                    holder.posted.setText(gi.posted);
+                    if (gi.pages == 0 || !Settings.getShowGalleryPages()) {
+                        holder.pages.setText(null);
+                        holder.pages.setVisibility(View.GONE);
+                    } else {
+                        holder.pages.setText(Integer.toString(gi.pages) + "P");
+                        holder.pages.setVisibility(View.VISIBLE);
+                    }
+                    if (TextUtils.isEmpty(gi.simpleLanguage)) {
+                        holder.simpleLanguage.setText(null);
+                        holder.simpleLanguage.setVisibility(View.GONE);
+                    } else {
+                        holder.simpleLanguage.setText(gi.simpleLanguage);
+                        holder.simpleLanguage.setVisibility(View.VISIBLE);
+                    }
+                    holder.favourited.setVisibility((mShowFavourited && gi.favoriteSlot >= -1 && gi.favoriteSlot <= 10) ? View.VISIBLE : View.GONE);
+                    holder.downloaded.setVisibility(mDownloadManager.containDownloadInfo(gi.gid) ? View.VISIBLE : View.GONE);
+
                 }
-                holder.posted.setText(gi.posted);
-                if (gi.pages == 0 || !Settings.getShowGalleryPages()) {
-                    holder.pages.setText(null);
-                    holder.pages.setVisibility(View.GONE);
-                } else {
-                    holder.pages.setText(Integer.toString(gi.pages) + "P");
-                    holder.pages.setVisibility(View.VISIBLE);
-                }
-                if (TextUtils.isEmpty(gi.simpleLanguage)) {
-                    holder.simpleLanguage.setText(null);
-                    holder.simpleLanguage.setVisibility(View.GONE);
-                } else {
-                    holder.simpleLanguage.setText(gi.simpleLanguage);
-                    holder.simpleLanguage.setVisibility(View.VISIBLE);
-                }
-                holder.favourited.setVisibility((mShowFavourited && gi.favoriteSlot >= -1 && gi.favoriteSlot <= 10) ? View.VISIBLE : View.GONE);
-                holder.downloaded.setVisibility(mDownloadManager.containDownloadInfo(gi.gid) ? View.VISIBLE : View.GONE);
+
+
                 break;
             }
             case TYPE_GRID: {

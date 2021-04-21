@@ -12,6 +12,8 @@ public class ApkInfoBean {
     private Drawable iconDrawable;
     private boolean isSystemApp;
 
+    private boolean isAdView;
+
 
     public String getAppName() {
         return appName;
@@ -60,5 +62,13 @@ public class ApkInfoBean {
 
     public void setIconDrawable(Drawable iconDrawable) {
         this.iconDrawable = iconDrawable;
+    }
+
+    public boolean isAdView() {
+        return isAdView;
+    }
+
+    public void setAdView(boolean adView) {
+        isAdView = adView;
     }
 }

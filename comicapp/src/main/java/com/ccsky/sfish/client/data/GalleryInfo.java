@@ -116,6 +116,8 @@ public class GalleryInfo implements Parcelable {
     public int spanIndex;
     public int spanGroupIndex;
 
+    public int showAdView = 0;
+
     /**
      * language from title
      */
@@ -180,6 +182,8 @@ public class GalleryInfo implements Parcelable {
         dest.writeInt(this.spanGroupIndex);
         dest.writeInt(this.favoriteSlot);
         dest.writeString(this.favoriteName);
+
+        dest.writeInt(this.showAdView);
     }
 
     public GalleryInfo() {}
@@ -204,6 +208,8 @@ public class GalleryInfo implements Parcelable {
         this.spanGroupIndex = in.readInt();
         this.favoriteSlot = in.readInt();
         this.favoriteName = in.readString();
+
+        this.showAdView = in.readInt();
     }
 
     public static final Parcelable.Creator<GalleryInfo> CREATOR = new Parcelable.Creator<GalleryInfo>() {

@@ -19,11 +19,13 @@ package com.ccsky.sfish.ui.scene;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ccsky.sfish.widget.SimpleRatingView;
 import com.ccsky.sfish.R;
+import com.ccsky.sfish.widget.SimpleRatingView;
 import com.ccsky.widget.LoadImageView;
+import com.google.android.gms.ads.AdView;
 
 class GalleryHolder extends RecyclerView.ViewHolder {
 
@@ -38,6 +40,11 @@ class GalleryHolder extends RecyclerView.ViewHolder {
     public final ImageView favourited;
     public final ImageView downloaded;
 
+    public View contentlayout;
+    public View bannerlayout;
+    public AdView bannerAdView;
+    public boolean isAdLoad;
+
     public GalleryHolder(View itemView) {
         super(itemView);
 
@@ -51,5 +58,9 @@ class GalleryHolder extends RecyclerView.ViewHolder {
         simpleLanguage = itemView.findViewById(R.id.simple_language);
         favourited = itemView.findViewById(R.id.favourited);
         downloaded = itemView.findViewById(R.id.downloaded);
+
+        contentlayout = itemView.findViewById(R.id.item_gallery_content_layout);
+        bannerlayout = itemView.findViewById(R.id.banner_adView_layout);
+        bannerAdView = itemView.findViewById(R.id.banner_adView);
     }
 }
