@@ -3,7 +3,9 @@ package com.ssract.one;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,8 +24,11 @@ import com.core.base.utils.PermissionUtil;
 import com.core.base.utils.SignatureUtil;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
@@ -34,6 +39,7 @@ import com.ssract.one.adapter.ApkInfoAdapter;
 import com.ssract.one.bean.ApkInfoBean;
 import com.ssract.one.fragment.ApkInfoFragment;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +76,26 @@ public class MainActivityNew extends AppCompatActivity {
         PL.e(SignatureUtil.getSignatureSHA1WithColon(this,this.getPackageName()));
         reportEvent();
 
+        new AsyncTask<Void,Void,Void>(){
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                try {
+                    String adverstingId = AdvertisingIdClient.getAdvertisingIdInfo(getApplicationContext()).getId();
+                    Log.d("adverstingId", "adverstingId = " + adverstingId);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                }
+
+
+                return null;
+            }
+        }.execute();
 
         // Get Remote Config instance.
         // [START get_remote_config_instance]
