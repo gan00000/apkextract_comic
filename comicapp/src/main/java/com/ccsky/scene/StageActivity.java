@@ -31,8 +31,6 @@ import com.ccsky.sfish.R;
 import com.ccsky.sfish.ui.SkyActivity;
 import com.hippo.yorozuya.AssertUtils;
 import com.hippo.yorozuya.IntIdGenerator;
-import com.ssract.one.ad.AdConfig;
-import com.ssract.one.ad.CCAdmobManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,7 +61,6 @@ public abstract class StageActivity extends SkyActivity {
 
     private final SceneViewComparator mSceneViewComparator = new SceneViewComparator();
 
-    protected CCAdmobManager ccAdmobManager;
 
     private final class SceneViewComparator implements Comparator<View> {
 
@@ -181,14 +178,8 @@ public abstract class StageActivity extends SkyActivity {
             ((SceneApplication) getApplicationContext()).registerStageActivity(this, mStageId);
         }
 
-        // Create layout
-        ccAdmobManager = new CCAdmobManager(this);
-        ccAdmobManager.setInterstitialAdId(AdConfig.InterstitialAd_unitId);
 
         onCreate2(savedInstanceState);
-
-
-//        ccAdmobManager.loadAndShowInterstitialAd(AdConfig.InterstitialAd_unitId);
 
         Intent intent = getIntent();
         if (savedInstanceState == null) {
