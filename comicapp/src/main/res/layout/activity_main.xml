@@ -50,6 +50,8 @@
                 android:layout_weight="1"
                 android:background="@null"
                 app:headerLayout="@layout/nav_header_main"
+                app:itemTextColor="@color/colorPrimary"
+                app:itemIconTint="@android:color/white"
                 app:menu="@menu/nav_drawer_main"/>
 
             <Button
