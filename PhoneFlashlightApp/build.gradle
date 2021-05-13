@@ -55,7 +55,6 @@ dependencies {
 
     // Add firebase dependency
     implementation 'com.google.firebase:firebase-core:18.0.3'
-    implementation 'com.google.firebase:firebase-ads:20.0.0' //admob广告
     implementation 'com.google.firebase:firebase-crashlytics:17.4.1' //崩溃分析
     implementation 'com.google.firebase:firebase-analytics:18.0.3'
 }

@@ -34,8 +34,8 @@ android {
         minSdkVersion 18
         targetSdkVersion 30
 
-        versionCode 8
-        versionName "8.0"
+        versionCode 9
+        versionName "9.0"
         vectorDrawables.useSupportLibrary = true
         resConfigs "zh", "zh-rCN", "zh-rHK", "zh-rTW",
                 "es", "ja", "ko", "fr", "de", "th"

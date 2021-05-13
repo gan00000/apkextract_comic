@@ -185,6 +185,8 @@
 -dontwarn org.jsoup.**
 #-keep class org.jsoup.** {*;}
 
+-keep class com.ccsky.widget.LoadImageView {*;}
+
 -dontwarn com.hippo.**
 #-keep class com.hippo.glview.** {*;}
 #-keep class com.hippo.easyrecyclerview.** {*;}
@@ -220,3 +222,7 @@ public static java.lang.String TABLENAME;
 -dontwarn org.greenrobot.greendao.database.**
 # If you do not use Rx:
 -dontwarn rx.**
+
+-dontwarn org.xmlpull.v1.XmlPullParser
+-dontwarn org.xmlpull.v1.XmlSerializer
+-keep class org.xmlpull.v1.* {*;}
