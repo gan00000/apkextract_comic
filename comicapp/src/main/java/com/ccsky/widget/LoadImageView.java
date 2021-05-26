@@ -18,6 +18,7 @@ package com.ccsky.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.ColorDrawable;
@@ -26,21 +27,26 @@ import android.graphics.drawable.TransitionDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.ccsky.drawable.PreciselyClipDrawable;
+import com.ccsky.sfish.R;
 import com.ccsky.sfish.SkyApplication;
+import com.ccsky.util.DrawableManager;
 import com.hippo.conaco.Conaco;
-import com.hippo.conaco.ConacoTask;
 import com.hippo.conaco.DataContainer;
 import com.hippo.conaco.Unikery;
-import com.ccsky.sfish.R;
 import com.hippo.image.ImageBitmap;
 import com.hippo.image.ImageDrawable;
 import com.hippo.image.RecycledException;
-import com.ccsky.util.DrawableManager;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -127,9 +133,9 @@ public class LoadImageView extends FixedAspectImageView implements Unikery<Image
         super.onDetachedFromWindow();
 
         // Cancel
-        mConaco.cancel(this);
-        // Clear drawable
-        clearDrawable();
+//        mConaco.cancel(this);
+//        // Clear drawable
+//        clearDrawable();
     }
 
     private ImageDrawable getImageDrawable() {
@@ -152,13 +158,13 @@ public class LoadImageView extends FixedAspectImageView implements Unikery<Image
 
     private void clearDrawable() {
         // Recycle ImageDrawable
-        ImageDrawable imageDrawable = getImageDrawable();
-        if (imageDrawable != null) {
-            imageDrawable.recycle();
-        }
-
-        // Set drawable null
-        setImageDrawable(null);
+//        ImageDrawable imageDrawable = getImageDrawable();
+//        if (imageDrawable != null) {
+//            imageDrawable.recycle();
+//        }
+//
+//        // Set drawable null
+//        setImageDrawable(null);
     }
 
     private void clearRetry() {
@@ -232,13 +238,54 @@ public class LoadImageView extends FixedAspectImageView implements Unikery<Image
         mContainer = container;
         mUseNetwork = useNetwork;
 
-        ConacoTask.Builder<ImageBitmap> builder = new ConacoTask.Builder<ImageBitmap>()
-                .setUnikery(this)
-                .setKey(key)
-                .setUrl(url)
-                .setDataContainer(container)
-                .setUseNetwork(useNetwork);
-        mConaco.load(builder);
+//        ConacoTask.Builder<ImageBitmap> builder = new ConacoTask.Builder<ImageBitmap>()
+//                .setUnikery(this)
+//                .setKey(key)
+//                .setUrl(url)
+//                .setDataContainer(container)
+//                .setUseNetwork(useNetwork);
+//        mConaco.load(builder);
+
+
+//        Glide.with(this)
+//                .asBitmap()
+//                .load(url)
+//                .addListener(new RequestListener<Bitmap>() {
+//                    @Override
+//                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+//                        onFailure();
+//                        return false;
+//                    }
+//
+//                    @Override
+//                    public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+//                        onGetValue(ImageBitmap.create(resource),Conaco.SOURCE_NETWORK);
+//                        return true;
+//                    }
+//                })
+//                .into(this);
+
+        Glide.with(this)
+                .asBitmap()
+//                .addListener(new RequestListener<Bitmap>() {
+//                    @Override
+//                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+//                        return false;
+//                    }
+//
+//                    @Override
+//                    public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+//                        return false;
+//                    }
+//                })
+                .load(url)
+                .into(new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                onGetValue(ImageBitmap.create(resource),Conaco.SOURCE_NETWORK);
+            }
+        });
+
     }
 
     public void load(Drawable drawable) {
@@ -280,7 +327,12 @@ public class LoadImageView extends FixedAspectImageView implements Unikery<Image
     }
 
     @Override
-    public boolean onGetValue(@NonNull ImageBitmap value, int source) {
+    public boolean onGetValue( ImageBitmap value, int source) {
+
+        if (value == null){
+            return false;
+        }
+
         Drawable drawable;
         try {
             drawable = new ImageDrawable(value);
