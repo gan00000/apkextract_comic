@@ -63,7 +63,6 @@ import com.ccsky.sfish.R;
 import com.ccsky.sfish.Settings;
 import com.ccsky.sfish.SkyApplication;
 import com.ccsky.sfish.SkyDB;
-import com.ccsky.sfish.SkyPayActivity;
 import com.ccsky.sfish.client.EhRequest;
 import com.ccsky.sfish.client.SkyClient;
 import com.ccsky.sfish.client.SkyUrl;
@@ -261,8 +260,8 @@ public final class GalleryListScene extends SkyBaseScene
                 if (mRecyclerView != null) {
                     mRecyclerView.smoothScrollToPosition(0);
 
-                    Intent intent = new Intent(getActivity2(), SkyPayActivity.class);
-                    startActivityForResult(intent,2001);
+//                    Intent intent = new Intent(getActivity2(), SkyPayActivity.class);
+//                    startActivityForResult(intent,2001);
                 }
             }
         });
