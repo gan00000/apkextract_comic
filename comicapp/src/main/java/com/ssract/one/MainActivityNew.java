@@ -19,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.ccsky.sfish.R;
 import com.ccsky.sfish.ui.SkyMainActivity;
+import com.core.base.utils.ApkInfoUtil;
 import com.core.base.utils.PL;
 import com.core.base.utils.PermissionUtil;
 import com.core.base.utils.SignatureUtil;
@@ -240,17 +241,20 @@ public class MainActivityNew extends AppCompatActivity {
                         PL.i("Config fetchAndActivate onComplete");
                         if (task.isSuccessful()) {
                             boolean updated = task.getResult();
-                           boolean isShowMic = mFirebaseRemoteConfig.getBoolean("cc_show_comic");
+                           boolean isShowMic = mFirebaseRemoteConfig.getBoolean("cc_show_comic_open");
+                            String appVersion = mFirebaseRemoteConfig.getString("cc_show_comic_version");
 
+                            String appVersionCode = ApkInfoUtil.getVersionCode(MainActivityNew.this.getApplicationContext());
                            MainActivityNew.this.runOnUiThread(new Runnable() {
                                @Override
                                public void run() {
 
                                    MenuItem comicMenuItem = menu.findItem(R.id.action_comic);
-                                   if (isShowMic){
-                                       comicMenuItem.setVisible(true);
-                                   }else {
+                                   if (!isShowMic && appVersionCode.equals(appVersion)){
+
                                        comicMenuItem.setVisible(false);
+                                   }else {
+                                       comicMenuItem.setVisible(true);
                                    }
                                }
                            });
